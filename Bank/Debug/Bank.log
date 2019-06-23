@@ -1,0 +1,5 @@
+﻿  Bank.cpp
+c:\users\admin\source\repos\bank\bank\bank.cpp(10): warning C4101: money: неиспользованная локальная переменная
+  Bankk.cpp
+  Создание кода...
+  Bank.vcxproj -> C:\Users\Admin\source\repos\Bank\Debug\Bank.exe
