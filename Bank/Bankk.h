@@ -59,18 +59,22 @@ public:
 		{
 			if ((a[i]->Name) == Name)
 			{
-				cout << "Сумма пополнения:"; cin >> money;
 				if (flag == 1)
 				{
+					cout << "Сумма пополнения:"; cin >> money;
 					a[i]->money += money;
 				}
 				else
 				{
+					cout << "Сумма снятия:"; cin >> money;
 					if (a[i]->money - money < 0)
 					{
 						cout << "Недостаточно средств. На вашем счету " << a[i]->money << " грн.";
 					}
-					a[i]->money -= money;
+					else
+					{
+						a[i]->money -= money;
+					}
 				}
 
 				cout << "Ваш балланс равен " << a[i]->money << " грн.";
