@@ -1,4 +1,5 @@
-﻿  Bank.cpp
+﻿  Account.cpp
+  Bank.cpp
 c:\users\admin\source\repos\bank\bank\bank.cpp(10): warning C4101: money: неиспользованная локальная переменная
   Bankk.cpp
   Создание кода...

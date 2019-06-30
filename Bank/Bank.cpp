@@ -9,14 +9,13 @@ using namespace std;
 int main() {
 	long long money, vibor;
 	string Name;
-
 	setlocale(LC_CTYPE, "rus");
 	vibor = 1;
 	Bank* x = new Bank;
 	x->kolvo = 0;
 	while (vibor == 1)
 	{
-		cout << "Выбирите одно из действий:\n1 - Создать\n2 - Пополнить\n3 - Снять\n";
+		cout << "Выбирите одно из действий:\n1 - Создать аккаунт\n2 - Пополнить\n3 - Снять\n";
 		cin >> vibor;
 
 		if (vibor == 1)
