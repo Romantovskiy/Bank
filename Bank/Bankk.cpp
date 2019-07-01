@@ -5,102 +5,92 @@
 
 //using namespace std;
 
-
 void Bank::Register()
 	{
 		string Name;
 		int i;
-		int flag;  //1, если аккаунт был найден, 0 в противном случае.
-		flag = 0;
+		int nalichieAccounta;  //1, если аккаунт был найден, 0 в противном случае.
+		nalichieAccounta = 0;
 		cout << "Введите ваше имя:"; cin >> Name;
-		for (i = 0; i < kolvo; i++)
+		for (i = 0; i < kolvoAccountovBanka; i++)
 		{
-			if ((a[i]->get_Name()) == Name)
+			if ((account[i]->get_Name()) == Name)
 			{
 				cout << "Вы уже зарегестриррованны.\n";
-				flag = 1;
+				nalichieAccounta = 1;
 			}
 		}
-		if (flag == 0)
+		if (nalichieAccounta == 0)
 		{
-			a[kolvo] = new Account();
-			a[kolvo]->set_Name(Name);
-			a[kolvo]->set_money(-a[i]->get_money());
-			kolvo++;
+			account[kolvoAccountovBanka] = new Account();
+			account[kolvoAccountovBanka]->set_Name(Name);
+			account[kolvoAccountovBanka]->set_money(-account[i]->get_money());
+			kolvoAccountovBanka++;
 
 		}
 
 	}
 
-void Bank::Popolnenie(int flag) //flag = 1, если пополняют счет, и равен -1, если снимают.
+void Bank::Popolnenie()
 {
 	long long money;
 	long long i;
-	int flagS; //1, если аккаунт был найден, 0 в противном случае.
-	flagS = 0;
+	int nalichieAccounta; //1, если аккаунт был найден, 0 в противном случае.
+	nalichieAccounta = 0;
 	string Name;
 	cout << "Введите ваше имя:"; cin >> Name;
-	for (i = 0; i < kolvo; i++)
+	for (i = 0; i < kolvoAccountovBanka; i++)
 	{
-		if ((a[i]->get_Name()) == Name)
+		if ((account[i]->get_Name()) == Name)
 		{
-			if (flag == 1)
-			{
-				cout << "Сумма пополнения:"; cin >> money;
-				a[i]->set_money(money);
-			}
-			else
-			{
-				cout << "Сумма снятия:"; cin >> money;
-				if (a[i]->get_money() - money < 0)
-				{
-					cout << "Недостаточно средств. На вашем счету " << a[i]->get_money() << " грн.";
-				}
-				else
-				{
-					a[i]->set_money(-money);
-				}
-			}
+			cout << "Сумма пополнения:"; cin >> money;
+			account[i]->set_money(money);
 
-			cout << "Ваш балланс равен " << a[i]->get_money() << " грн.";
-			flagS = 1;
+			cout << "Ваш балланс равен " << account[i]->get_money() << " грн.";
+			nalichieAccounta = 1;
 		}
 	}
-	if (flagS == 0)
+	if (nalichieAccounta == 0)
 	{
 		cout << "Аккаунта на такое имя не существует. Пожалуйста, вначале создайте его.\n";
 	}
 
 }
 
-Bank::Bank()
-{/*
-	Register(); {
-		string Name;
-		int i;
-		int flag;  //1, если аккаунт был найден, 0 в противном случае.
-		flag = 0;
-		cout << "Введите ваше имя:"; cin >> Name;
-		for (i = 0; i < kolvo; i++)
+void Bank::Snyatie()
+{
+	long long money;
+	long long i;
+	int nalichieAccounta; //1, если аккаунт был найден, 0 в противном случае.
+	nalichieAccounta = 0;
+	string Name;
+	cout << "Введите ваше имя:"; cin >> Name;
+	for (i = 0; i < kolvoAccountovBanka; i++)
+	{
+		if ((account[i]->get_Name()) == Name)
 		{
-			if ((a[i]->Name) == Name)
+			cout << "Сумма снятия:"; cin >> money;
+			if (account[i]->get_money() - money < 0)
 			{
-				cout << "Вы уже зарегестриррованны.\n";
-				flag = 1;
+				cout << "Недостаточно средств. На вашем счету " << account[i]->get_money() << " грн.";
 			}
+			else
+			{
+				account[i]->set_money(-money);
+				cout << "Ваш балланс равен " << account[i]->get_money() << " грн.";
+			}
+			nalichieAccounta = 1;
 		}
-		if (flag == 0)
-		{
-			a[kolvo] = new Account(Name);
-			a[kolvo]->Name = Name;
-			a[kolvo]->money = 0;
-			kolvo++;
-
-		}
-
-	}*/
+	}
+	if (nalichieAccounta == 0)
+	{
+		cout << "Аккаунта на такое имя не существует. Пожалуйста, вначале создайте его.\n";
+	}
 }
 
+Bank::Bank()
+{
+}
 
 Bank::~Bank()
 {

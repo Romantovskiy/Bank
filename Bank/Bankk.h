@@ -7,13 +7,14 @@ using namespace std;
 class Bank
 {
 public:
-	Account* a[1000];
-	int kolvo;
+	Account* account[1000];
+	int kolvoAccountovBanka;
 	Bank();
 	~Bank();
 
 	void Register();
-	void Popolnenie(int flag);
+	void Popolnenie();
+	void Snyatie();
 
 private:
 
